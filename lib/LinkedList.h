@@ -1,23 +1,23 @@
 #pragma once
 
 template <class T>
-struct Node {
+struct LinkedListNode {
 	T val;
-	Node<T> *next = nullptr;
-	Node<T> *prev = nullptr;
+	LinkedListNode<T> *next = nullptr;
+	LinkedListNode<T> *prev = nullptr;
 
-	Node(T val);
+	LinkedListNode(T val);
 };
 
 template <class T>
 class LinkedList {
-	Node<T> *head = nullptr;
-	Node<T> *tail = nullptr;
+	LinkedListNode<T> *head = nullptr;
+	LinkedListNode<T> *tail = nullptr;
 
 public:
 	class iterator {
-		Node<T> *curr = nullptr;
-		iterator(Node<T> *node);
+		LinkedListNode<T> *curr = nullptr;
+		iterator(LinkedListNode<T> *node);
 		friend class LinkedList<T>;
 
 	public:

@@ -14,13 +14,12 @@ HashTable<K, V>::HashTable() {
 }
 
 template <class K, class V>
-V HashTable<K, V>::put(K key, V val) {
+void HashTable<K, V>::put(K key, V val) {
 	size_t keyHash = hash<K>{}(key);
 	try {
-		return find(key)->second;
+		find(key);
 	} catch (NoSuchElementException &e) {
 		data[keyHash%NUM_BUCKETS]->pushBack(make_pair(key, val));		
-		return val;
 	}
 }
 

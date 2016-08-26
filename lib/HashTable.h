@@ -8,7 +8,7 @@ class HashTable {
 
 public:
 	HashTable();
-	V put(K key, V val);
+	void put(K key, V val);
 	V remove(K key);
 	V get(K key);
 };

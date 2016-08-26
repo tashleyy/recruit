@@ -4,13 +4,13 @@
 using namespace std;
 
 template <class T>
-Node<T>::Node(T val) : val(val) {}
+LinkedListNode<T>::LinkedListNode(T val) : val(val) {}
 
 template <class T>
 LinkedList<T>::iterator::iterator() {}
 
 template <class T>
-LinkedList<T>::iterator::iterator(Node<T> *node) {
+LinkedList<T>::iterator::iterator(LinkedListNode<T> *node) {
 	curr = node;
 }
 
@@ -50,26 +50,26 @@ LinkedList<T>::~LinkedList() {
 template <class T>
 void LinkedList<T>::pushFront(const T &val) {
 	if (head) {
-		Node<T> *newNode = new Node<T>(val);
+		LinkedListNode<T> *newNode = new LinkedListNode<T>(val);
 		newNode->next = head;
 		head->prev = newNode;
 		head = newNode;
 		return;
 	}
-	head = new Node<T>(val);
+	head = new LinkedListNode<T>(val);
 	tail = head;
 }
 
 template <class T>
 void LinkedList<T>::pushBack(const T &val) {
 	if (tail) {
-		Node<T> *newNode = new Node<T>(val);
+		LinkedListNode<T> *newNode = new LinkedListNode<T>(val);
 		newNode->prev = tail;
 		tail->next = newNode;
 		tail = newNode;
 		return;
 	}
-	tail = new Node<T>(val);
+	tail = new LinkedListNode<T>(val);
 	head = tail;
 }
 
@@ -126,7 +126,7 @@ T& LinkedList<T>::peekBack() {
 template <class T>
 int LinkedList<T>::size() const {
 	int size = 0;
-	Node<T> *curr = head;
+	LinkedListNode<T> *curr = head;
 	while (curr) {
 		size++;
 		curr = curr->next;
@@ -141,7 +141,7 @@ bool LinkedList<T>::isEmpty() const {
 
 template <class T>
 void LinkedList<T>::print() const {
-	Node<T> *curr = head;
+	LinkedListNode<T> *curr = head;
 	while (curr) {
 		cout << curr->val << " ";
 		curr = curr->next;
@@ -151,7 +151,7 @@ void LinkedList<T>::print() const {
 
 template <class T>
 void LinkedList<T>::reversePrint() const {
-	Node<T> *curr = tail;
+	LinkedListNode<T> *curr = tail;
 	while (curr) {
 		cout << curr->val << " ";
 		curr = curr->prev;
@@ -171,7 +171,7 @@ typename LinkedList<T>::iterator LinkedList<T>::end() const {
 
 template <class T>
 T LinkedList<T>::remove(const LinkedList<T>::iterator &it) {
-	Node<T> *rem = it.curr;
+	LinkedListNode<T> *rem = it.curr;
 	if (rem->prev) {
 		rem->prev->next = rem->next;
 	} else {

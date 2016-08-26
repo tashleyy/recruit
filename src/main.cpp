@@ -4,6 +4,7 @@
 #include "../lib/Queue.h"
 #include "../lib/ArrayList.h"
 #include "../lib/HashTable.h"
+#include "../lib/BinarySearchTree.h"
 #include "../lib/Exceptions.h"
 using namespace std;
 
@@ -12,6 +13,7 @@ void testStack();
 void testQueue();
 void testArrayList();
 void testHashTable();
+void testBinarySearchTree();
 
 int main(int argc, char **argv) {
 	// TESTS ARE NOT EXTENSIVE/COMPREHENSIVE
@@ -20,6 +22,7 @@ int main(int argc, char **argv) {
 	testQueue();
 	testArrayList();
 	testHashTable();
+	testBinarySearchTree();
 	return 0;
 }
 
@@ -210,4 +213,33 @@ void testHashTable() {
 	cout << "Put (a, 2)" << endl;	
 	cout << "Got (a, " << hashTable.get('a') << ")" << endl;
 	cout << endl;
+}
+
+void testBinarySearchTree() {
+	cout << "TESTING BINARY SEARCH TREE" << endl;
+	BinarySearchTree<int, int> binarySearchTree;
+	Stack<int> stack;
+	srand(time(0));
+	for (int i = 0; i < 15; i++) {
+		int n = rand() % 15;
+		stack.push(n);
+		binarySearchTree.insert(n, n);
+		cout << "Inserted (" << n << ", "<< n << ")" << endl;
+	}
+	cout << "Pre order: ";
+	binarySearchTree.printPreOrder();
+	cout << "In order: ";
+	binarySearchTree.printInOrder();
+	cout << "Post order: ";
+	binarySearchTree.printPostOrder();
+	while (!stack.isEmpty()) {
+		cout << "Removed " << binarySearchTree.remove(stack.pop()) << endl;
+		cout << "Pre order: ";
+		binarySearchTree.printPreOrder();
+	}
+	try {
+		binarySearchTree.remove(1);
+	} catch (NoSuchElementException &e) {
+		cout << "Caught NoSuchElementException" << endl;
+	}
 }
