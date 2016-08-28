@@ -5,6 +5,7 @@
 #include "../lib/ArrayList.h"
 #include "../lib/HashTable.h"
 #include "../lib/BinarySearchTree.h"
+#include "../lib/Heap.h"
 #include "../lib/Exceptions.h"
 using namespace std;
 
@@ -14,6 +15,7 @@ void testQueue();
 void testArrayList();
 void testHashTable();
 void testBinarySearchTree();
+void testHeap();
 
 int main(int argc, char **argv) {
 	// TESTS ARE NOT EXTENSIVE/COMPREHENSIVE
@@ -23,6 +25,7 @@ int main(int argc, char **argv) {
 	testArrayList();
 	testHashTable();
 	testBinarySearchTree();
+	testHeap();
 	return 0;
 }
 
@@ -242,4 +245,92 @@ void testBinarySearchTree() {
 	} catch (NoSuchElementException &e) {
 		cout << "Caught NoSuchElementException" << endl;
 	}
+}
+
+template <class T>
+struct LessThanComp : public Comparator<T> {
+	bool operator()(const T &lhs, const T &rhs) {
+		return lhs < rhs;
+	}
+	~LessThanComp() {}
+};
+
+template <class T>
+struct GreaterThanComp : public Comparator<T> {
+	bool operator()(const T &lhs, const T &rhs) {
+		return lhs > rhs;
+	}
+	~GreaterThanComp() {}
+};
+
+void testHeap() {
+	cout << "TESTING HEAP" << endl;
+	Comparator<int> *ltc = new LessThanComp<int>();
+	Comparator<int> *gtc = new GreaterThanComp<int>();
+	Heap<int> minHeap = Heap<int>(3, ltc);
+	Heap<int> maxHeap = Heap<int>(3, gtc);
+	minHeap.insert(1);
+	cout << "Inserted 1 into minHeap" << endl;
+	maxHeap.insert(1);
+	cout << "Inserted 1 into maxHeap" << endl;
+	cout << "Peeked " << minHeap.peek() << " from minHeap" << endl;
+	cout << "Peeked " << maxHeap.peek() << " from maxHeap" << endl;
+	minHeap.insert(2);
+	cout << "Inserted 2 into minHeap" << endl;
+	maxHeap.insert(2);
+	cout << "Inserted 2 into maxHeap" << endl;
+	cout << "Peeked " << minHeap.peek() << " from minHeap" << endl;
+	cout << "Peeked " << maxHeap.peek() << " from maxHeap" << endl;
+	minHeap.insert(4);
+	cout << "Inserted 4 into minHeap" << endl;
+	maxHeap.insert(4);
+	cout << "Inserted 4 into maxHeap" << endl;
+	cout << "Peeked " << minHeap.peek() << " from minHeap" << endl;
+	cout << "Peeked " << maxHeap.peek() << " from maxHeap" << endl;
+	minHeap.insert(3);
+	cout << "Inserted 3 into minHeap" << endl;
+	maxHeap.insert(3);
+	cout << "Inserted 3 into maxHeap" << endl;
+	cout << "Peeked " << minHeap.peek() << " from minHeap" << endl;
+	cout << "Peeked " << maxHeap.peek() << " from maxHeap" << endl;
+	minHeap.insert(-1);
+	cout << "Inserted -1 into minHeap" << endl;
+	maxHeap.insert(-1);
+	cout << "Inserted -1 into maxHeap" << endl;
+	cout << "Peeked " << minHeap.peek() << " from minHeap" << endl;
+	cout << "Peeked " << maxHeap.peek() << " from maxHeap" << endl;
+	cout << "Popped " << minHeap.pop() << " from minHeap" << endl;
+	cout << "Popped " << maxHeap.pop() << " from maxHeap" << endl;
+	cout << "Peeked " << minHeap.peek() << " from minHeap" << endl;
+	cout << "Peeked " << maxHeap.peek() << " from maxHeap" << endl;
+	minHeap.insert(2);
+	cout << "Inserted 2 into minHeap" << endl;
+	maxHeap.insert(2);
+	cout << "Inserted 2 into maxHeap" << endl;
+	cout << "Peeked " << minHeap.peek() << " from minHeap" << endl;
+	cout << "Peeked " << maxHeap.peek() << " from maxHeap" << endl;
+	cout << "Popped " << minHeap.pop() << " from minHeap" << endl;
+	cout << "Popped " << maxHeap.pop() << " from maxHeap" << endl;
+	cout << "Peeked " << minHeap.peek() << " from minHeap" << endl;
+	cout << "Peeked " << maxHeap.peek() << " from maxHeap" << endl;
+	cout << "Popped " << minHeap.pop() << " from minHeap" << endl;
+	cout << "Popped " << maxHeap.pop() << " from maxHeap" << endl;
+	cout << "Popped " << minHeap.pop() << " from minHeap" << endl;
+	cout << "Popped " << maxHeap.pop() << " from maxHeap" << endl;
+	cout << "Popped " << minHeap.pop() << " from minHeap" << endl;
+	cout << "Popped " << maxHeap.pop() << " from maxHeap" << endl;
+	cout << "Popped " << minHeap.pop() << " from minHeap" << endl;
+	cout << "Popped " << maxHeap.pop() << " from maxHeap" << endl;
+	try {
+		minHeap.pop();
+	} catch (NoSuchElementException &e) {
+		cout << "Caught NoSuchElementException" << endl;
+	}
+	try {
+		maxHeap.pop();
+	} catch (NoSuchElementException &e) {
+		cout << "Caught NoSuchElementException" << endl;
+	}
+	delete ltc;
+	delete gtc;
 }
