@@ -16,11 +16,11 @@ datastructures: $(BIN_DIR)/datastructures
 
 sorts: $(BIN_DIR)/sorts
 
-$(BIN_DIR)/datastructures: $(DS_CPP_FILES) $(DS_H_FILES) $(BIN_DIR)/.dirstamp
-	$(CC) src/datastructures.cpp -o $@ $(CPP_FLAGS)
+$(BIN_DIR)/datastructures: src/datastructures.cpp $(DS_CPP_FILES) $(DS_H_FILES) $(BIN_DIR)/.dirstamp
+	$(CC) $< -o $@ $(CPP_FLAGS)
 
-$(BIN_DIR)/sorts: $(SORT_CPP_FILES) $(SORT_H_FILES) $(BIN_DIR)/.dirstamp
-	$(CC) src/sorts.cpp -o $@ $(CPP_FLAGS)
+$(BIN_DIR)/sorts: src/sorts.cpp $(SORT_CPP_FILES) $(SORT_H_FILES) $(BIN_DIR)/.dirstamp
+	$(CC) $< -o $@ $(CPP_FLAGS)
 
 $(BIN_DIR)/.dirstamp:
 	mkdir -p $(BIN_DIR)
