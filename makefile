@@ -6,12 +6,12 @@ LIB_DIR = lib
 CPP_FILES = $(wildcard $(SRC_DIR)/*.cpp)
 H_FILES = $(wildcard $(LIB_DIR)/*.h)
 
-all: $(BIN_DIR)/main
+all: $(BIN_DIR)/datastructures
 
-main: $(BIN_DIR)/main
+datastructures: $(BIN_DIR)/datastructures
 
-$(BIN_DIR)/main: src/main.cpp $(CPP_FILES) $(H_FILES) $(BIN_DIR)/.dirstamp
-	$(CC) $< -o $@ $(CPP_FLAGS)
+$(BIN_DIR)/datastructures: $(CPP_FILES) $(H_FILES) $(BIN_DIR)/.dirstamp
+	$(CC) src/datastructures.cpp -o $@ $(CPP_FLAGS)
 
 $(BIN_DIR)/.dirstamp:
 	mkdir -p $(BIN_DIR)

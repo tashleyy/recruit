@@ -6,6 +6,7 @@
 #include "../lib/HashTable.h"
 #include "../lib/BinarySearchTree.h"
 #include "../lib/Heap.h"
+#include "../lib/Trie.h"
 #include "../lib/Exceptions.h"
 using namespace std;
 
@@ -16,6 +17,7 @@ void testArrayList();
 void testHashTable();
 void testBinarySearchTree();
 void testHeap();
+void testTrie();
 
 int main(int argc, char **argv) {
 	// TESTS ARE NOT EXTENSIVE/COMPREHENSIVE
@@ -26,6 +28,7 @@ int main(int argc, char **argv) {
 	testHashTable();
 	testBinarySearchTree();
 	testHeap();
+	testTrie();
 	return 0;
 }
 
@@ -245,6 +248,7 @@ void testBinarySearchTree() {
 	} catch (NoSuchElementException &e) {
 		cout << "Caught NoSuchElementException" << endl;
 	}
+	cout << endl;
 }
 
 template <class T>
@@ -333,4 +337,27 @@ void testHeap() {
 	}
 	delete ltc;
 	delete gtc;
+	cout << endl;
+}
+
+void testTrie() {
+	cout << "TESTING TRIE" << endl;
+	Trie trie;
+	trie.insert("he");
+	trie.insert("hell");
+	trie.insert("hear");
+	trie.insert("heap");
+	trie.insert("irk");
+	trie.insert("ink");
+	trie.insert("she");
+	cout << "Contains hello: " << trie.contains("hello") << endl;
+	cout << "Contains hell: " << trie.contains("hell") << endl;
+	trie.insert("hello");
+	cout << "Contains hello: " << trie.contains("hello") << endl;
+	cout << "Words: " << endl;
+	trie.printWords();
+	trie.insert("irked");
+	cout << "Words: " << endl;
+	trie.printWords();
+	cout << endl;
 }
