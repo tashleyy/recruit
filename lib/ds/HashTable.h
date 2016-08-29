@@ -13,4 +13,4 @@ public:
 	V get(K key);
 };
 
-#include "../src/HashTable.cpp"
+#include "../../src/ds/HashTable.cpp"

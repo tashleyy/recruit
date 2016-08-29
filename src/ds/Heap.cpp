@@ -1,5 +1,5 @@
-#include "../lib/Heap.h"
-#include "../lib/Exceptions.h"
+#include "../../lib/ds/Heap.h"
+#include "../../lib/Exceptions.h"
 
 template <class T>
 Heap<T>::Heap(int m, Comparator<T> *comp) : m(m), comp(comp) {}

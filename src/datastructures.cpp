@@ -1,12 +1,12 @@
 #include <iostream>
-#include "../lib/LinkedList.h"
-#include "../lib/Stack.h"
-#include "../lib/Queue.h"
-#include "../lib/ArrayList.h"
-#include "../lib/HashTable.h"
-#include "../lib/BinarySearchTree.h"
-#include "../lib/Heap.h"
-#include "../lib/Trie.h"
+#include "../lib/ds/LinkedList.h"
+#include "../lib/ds/Stack.h"
+#include "../lib/ds/Queue.h"
+#include "../lib/ds/ArrayList.h"
+#include "../lib/ds/HashTable.h"
+#include "../lib/ds/BinarySearchTree.h"
+#include "../lib/ds/Heap.h"
+#include "../lib/ds/Trie.h"
 #include "../lib/Exceptions.h"
 using namespace std;
 

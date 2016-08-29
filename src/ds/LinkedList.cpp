@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../lib/LinkedList.h"
-#include "../lib/Exceptions.h"
+#include "../../lib/ds/LinkedList.h"
+#include "../../lib/Exceptions.h"
 using namespace std;
 
 template <class T>

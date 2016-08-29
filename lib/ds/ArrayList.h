@@ -17,4 +17,4 @@ public:
 	void reversePrint() const;
 };
 
-#include "../src/ArrayList.cpp"
+#include "../../src/ds/ArrayList.cpp"

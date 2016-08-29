@@ -1,6 +1,6 @@
 #include <functional>
-#include "../lib/HashTable.h"
-#include "../lib/Exceptions.h"
+#include "../../lib/ds/HashTable.h"
+#include "../../lib/Exceptions.h"
 using namespace std;
 
 const int NUM_BUCKETS = 20;

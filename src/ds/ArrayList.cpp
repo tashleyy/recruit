@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../lib/ArrayList.h"
-#include "../lib/Exceptions.h"
+#include "../../lib/ds/ArrayList.h"
+#include "../../lib/Exceptions.h"
 using namespace std;
 
 const unsigned int INITIAL_CAPACITY = 10;

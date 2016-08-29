@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../lib/BinarySearchTree.h"
-#include "../lib/Exceptions.h"
+#include "../../lib/ds/BinarySearchTree.h"
+#include "../../lib/Exceptions.h"
 
 template <class K, class V>
 BinarySearchTreeNode<K, V>::BinarySearchTreeNode(K key, V val) : key(key), val(val) {}

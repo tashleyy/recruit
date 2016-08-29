@@ -10,4 +10,4 @@ public:
 	bool isEmpty() const;
 };
 
-#include "../src/Stack.cpp"
+#include "../../src/ds/Stack.cpp"

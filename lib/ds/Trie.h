@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 struct TrieNode {
 	char val;
@@ -22,4 +23,4 @@ public:
 	void printWords();
 };
 
-#include "../src/Trie.cpp"
+#include "../../src/ds/Trie.cpp"

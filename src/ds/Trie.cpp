@@ -1,4 +1,4 @@
-#include "../lib/Trie.h"
+#include "../../lib/ds/Trie.h"
 using namespace std;
 
 TrieNode::TrieNode(char val, bool isWord = false) : val(val), isWord(isWord) {}

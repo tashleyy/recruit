@@ -1,31 +1,31 @@
-#include "../lib/Queue.h"
-#include "../lib/Exceptions.h"
+#include "../../lib/ds/Stack.h"
+#include "../../lib/Exceptions.h"
 using namespace std;
 
 template <class T>
-void Queue<T>::add(const T &val) {
-	LinkedList<T>::pushBack(val);
+void Stack<T>::push(const T &val) {
+	LinkedList<T>::pushFront(val);
 }
 
 template <class T>
-T Queue<T>::remove() {
+T Stack<T>::pop() {
 	try {
 		return LinkedList<T>::popFront();
 	} catch (EmptyLinkedListException &e) {
-		throw EmptyQueueException();
+		throw EmptyStackException();
 	}
 }
 
 template <class T>
-T& Queue<T>::peek() {
+T& Stack<T>::peek() {
 	try {
 		return LinkedList<T>::peekFront();
 	} catch (EmptyLinkedListException &e) {
-		throw EmptyQueueException();
+		throw EmptyStackException();
 	}
 }
 
 template <class T>
-bool Queue<T>::isEmpty() const {
+bool Stack<T>::isEmpty() const {
 	return LinkedList<T>::isEmpty();
 }

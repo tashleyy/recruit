@@ -32,4 +32,4 @@ public:
 	void printPostOrder();
 };
 
-#include "../src/BinarySearchTree.cpp"
+#include "../../src/ds/BinarySearchTree.cpp"
